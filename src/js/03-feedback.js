@@ -34,9 +34,15 @@ function populateTextarea() {
     console.log(savedMessage);
     // form.email.value = savedMessage.email;
     // form.message.value = savedMessage.message;
-    formData.email = savedMessage.email;
-    form.email.value = formData.email;
-    formData.message = savedMessage.message;
-    form.message.value = formData.message;
+
+    // formData.email = savedMessage.email;
+    // form.email.value = formData.email;
+    // formData.message = savedMessage.message;
+    // form.message.value = formData.message;
+
+    Object.entries(savedMessage).forEach(([key, value]) => {
+      formData[key] = value;
+      form.elements[key].value = value;
+    });
   }
 }
