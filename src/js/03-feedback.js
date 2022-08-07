@@ -28,11 +28,15 @@ function onFormSubmit(evt) {
 }
 
 function populateTextarea() {
-  const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  let savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
   if (savedMessage) {
     console.log(savedMessage);
-    form.email.value = savedMessage.email;
-    form.message.value = savedMessage.message;
+    // form.email.value = savedMessage.email;
+    // form.message.value = savedMessage.message;
+    formData.email = savedMessage.email;
+    form.email.value = formData.email;
+    formData.message = savedMessage.message;
+    form.message.value = formData.message;
   }
 }
